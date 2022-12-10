@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useGlobalContext } from "../context/Context";
 
 const Book = (book) => {
+  const { favoriteList, setFavoriteList } = useGlobalContext();
+
   const addToFavorite = () => {
+    const checkList = favoriteList.find((item) => item.id === book.id);
+    if (checkList) {
+      console.log("Ürün zaten ekli");
+    } else {
+      setFavoriteList([...favoriteList, book]);
+    }
   };
 
   return (
     <div className="py-7 px-5 flex flex-col rounded-md bg-whitecolor shadow-md shadow-black-20 transition-all duration-300 ease-in-out">
-      <Link
-        
-        to={`/book/${book.id}`}
-        {...book}
-      >
+      <Link to={`/book/${book.id}`} {...book}>
         <div>
           <img
             className="max-w-[120px] md:max-w-[180px] h-[150px] md:h-[200px] mx-auto"
@@ -27,7 +32,9 @@ const Book = (book) => {
 
         <div>
           <span className="mb-1 font-bold">Yazar: </span>
-          <span className="opacity-70">{book.author}</span>
+          <Link to="/author">
+            <span className="opacity-70">{book.author}</span>
+          </Link>
         </div>
         <div>
           <span className="font-bold">Baskı: </span>
@@ -38,7 +45,10 @@ const Book = (book) => {
           <span className="opacity-70">{book.first_publish_year}</span>
         </div>
         <div>
-          <button onClick={addToFavorite} className="group hover:bg-purplecolor flex space-x-2 items-center justify-center border-2 border-purplecolor rounded-md px-3 py-1 transition-all duration-300 ease-in-out">
+          <button
+            onClick={addToFavorite}
+            className="group hover:bg-purplecolor flex space-x-2 items-center justify-center border-2 border-purplecolor rounded-md px-3 py-1 transition-all duration-300 ease-in-out"
+          >
             <span className="text-purplecolor group-hover:text-whitecolor transition-all duration-300 ease-in-out ">
               Favorilerime Ekle
             </span>

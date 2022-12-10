@@ -29,7 +29,7 @@ const SearchForm = () => {
         <div>
           <form className='w-full max-w-[680px]' onSubmit={handleSubmit}>
             <div className='py-3 px-7 rounded-lg flex justify-between bg-whitecolor'>
-              <input className='focus:outline-none text-blackcolor w-full' type="text" placeholder='Bir kitap arayın.' ref={searchText}/>
+              <input className='focus:outline-none text-blackcolor w-full' type="text" placeholder='Bir kitap aratın.' ref={searchText}/>
               <button className='flex justify-center text-purplecolor' type="submit" onClick={handleSubmit}>
                 <FaSearch size={32}/>
               </button>

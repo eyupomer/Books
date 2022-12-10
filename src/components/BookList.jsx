@@ -6,7 +6,7 @@ import Book from "./Book";
 // https://covers.openlibrary.org/b/id/240727-S.jpg
 
 const BookList = () => {
-  const {books, loading, resultTitle} = useGlobalContext();
+  const {books, loading} = useGlobalContext();
   const booksWithCovers = books.map((singleBook) => {
     return {
       ...singleBook,
@@ -18,10 +18,10 @@ const BookList = () => {
   if(loading) return <Loading />;
 
   return (
-    <div className="py-8 bg-[#f8f9fa]">
+    <div className="py-8 bg-[#f8d0db]">
       <div className="max-w-[1200px] mx-auto flex flex-col text-center px-5">
         <div className="font-[600] uppercase pt-4 pb-6">
-          <h2 className="text-purplecolor text-xl tracking-wider">{resultTitle}</h2>
+          <h2 className="text-purplecolor text-xl tracking-wider">En Çok Okunanlar</h2>
           <hr />
         </div>
         <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

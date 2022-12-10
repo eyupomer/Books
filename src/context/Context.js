@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [resultTitle, setResultTitle] = useState("");
+    const [favoriteList, setFavoriteList] = useState([]);
 
     const getBooks = useCallback(async () => {
         setLoading(true);
@@ -47,7 +48,7 @@ const AppProvider = ({ children }) => {
     }, [searchTerm, getBooks])
 
     return (
-        <AppContext.Provider value={{ loading, books, setSearchTerm, resultTitle, setResultTitle }}>
+        <AppContext.Provider value={{ loading, books, setSearchTerm, resultTitle, setResultTitle, favoriteList, setFavoriteList }}>
             {children}
         </AppContext.Provider>
     )

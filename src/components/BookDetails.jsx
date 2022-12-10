@@ -27,12 +27,14 @@ const BookDetails = () => {
             subject_places,
             subject_times,
             subjects,
+            author,
           } = data;
           const newBook = {
             description: description
               ? description.value
               : "Açıklama bulunamadı.",
             title: title,
+            author: author ? author.value : "Yazar bulunamadı.",
             cover_img: covers
               ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`
               : coverImg,
@@ -60,7 +62,6 @@ const BookDetails = () => {
     <div className="py-15">
       <div className="max-w-[1200px] mx-auto px-5">
         <button className="flex space-x-3 items-center ml-5 my-6 transition-all duration-300 ease-in-out hover:text-purplecolor" type="button" onClick={() => navigate("/bookList")}>
-          {" "}
           <FaArrowLeft size={22} />
           <span className="text-lg font-semibold">Geri Dön</span>
         </button>
@@ -71,6 +72,10 @@ const BookDetails = () => {
           <div className="scrollbar scrollbar-track-purple-400 scrollbar-thumb-purplecolor max-h-[600px] p-3 flex flex-col space-y-3 ">
             <div>
               <span className="font-semibold text-2xl">{book?.title}</span>
+            </div>
+            <div>
+              <span className="font-semibold">Yazar: </span>
+              <span className="italic">{book?.author}</span>
             </div>
             <div>
               <span className="opacity-70">{book?.description}</span>
