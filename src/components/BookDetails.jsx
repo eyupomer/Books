@@ -59,9 +59,9 @@ const BookDetails = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="py-15">
+    <div className="py-14 bg-[#f8d0db]">
       <div className="max-w-[1200px] mx-auto px-5">
-        <button className="flex space-x-3 items-center ml-5 my-6 transition-all duration-300 ease-in-out hover:text-purplecolor" type="button" onClick={() => navigate("/bookList")}>
+        <button className="flex space-x-3 items-center ml-5 transition-all duration-300 ease-in-out hover:text-purplecolor" type="button" onClick={() => navigate("/bookList")}>
           <FaArrowLeft size={22} />
           <span className="text-lg font-semibold">Geri Dön</span>
         </button>

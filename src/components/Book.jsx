@@ -3,7 +3,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useGlobalContext } from "../context/Context";
 
 const Book = (book) => {
-  const { favoriteList, setFavoriteList } = useGlobalContext();
+  const { favoriteList, setFavoriteList} = useGlobalContext();
 
   const addToFavorite = () => {
     const checkList = favoriteList.find((item) => item.id === book.id);
